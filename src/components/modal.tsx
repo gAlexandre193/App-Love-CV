@@ -14,6 +14,15 @@ interface ButtonI {
 }
 
 export default function ModalRedirect({ open, handleClose, handleRedirect }: ModalI) {
+  
+  // Actions
+  const handlerModalAction = () => {
+    if(handleRedirect && handleClose) {
+      handleRedirect('https://www.instagram.com/i.am.alexandre/');
+      handleClose();
+    }
+  }
+  
   return (
     <Modal
       open={open}
@@ -33,7 +42,7 @@ export default function ModalRedirect({ open, handleClose, handleRedirect }: Mod
 
           <Button 
             label='Redirecionar' 
-            handleAction={() => handleRedirect && handleRedirect('https://www.instagram.com/i.am.alexandre/')} 
+            handleAction={handlerModalAction} 
           />
         </div>
       </div>
